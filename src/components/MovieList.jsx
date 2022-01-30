@@ -27,7 +27,7 @@ const MovieList = ({ user, setUser }) => {
 
   return (
     <>
-      <h1>{user ? user.name : "no user"}</h1>
+      <h1>{user ? user.name : ""}</h1>
       <div className="listContainer">
         {user ? (
           <ul className="list">

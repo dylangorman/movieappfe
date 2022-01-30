@@ -14,6 +14,9 @@
 }
 
 body {
+  /* background-image: url(images/background.jpeg);
+  background-repeat: repeat-y; */
+
   background-color: var(--primary);
   background-repeat: no-repeat;
   background-size: contain;
