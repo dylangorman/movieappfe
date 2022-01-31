@@ -34,16 +34,14 @@ function Profile({ user, setUser, myList, setMyList }) {
 
   return (
     // // WHAT WE SEE ON SCREEN
-    <>
-      <p>User Profile</p>
+    <div className="profile">
+      <h1 className="profilePage">User Profile</h1>
       <h1>{user ? `Welcome ${user.username}` : ""}</h1>
       <h1>{user ? "" : "Not logged in"}</h1>
-      <MovieList />
+      <table type="text" name="movie" value={MovieList}></table>
 
-      <AddMovie />
-
-      <input type="button" value="Log Out" onClick={logOut} />
-    </>
+      <input className="logOut" type="button" value="logOut" onClick={logOut} />
+    </div>
   );
 }
 

@@ -97,12 +97,13 @@ h1 {
   border: solid dotted white;
   display: flex;
   flex-wrap: wrap;
-  flex: 0 0 1;
+  flex: 0 0 auto;
 }
 
-.addmovie,
+.profile,
 .register,
 .login {
+  color: #fbfef9;
   text-align: center;
   font-display: auto;
   justify-content: center;
@@ -110,7 +111,7 @@ h1 {
   padding: 100px;
 }
 
-.addmovie,
+.profileForm,
 .registerForm,
 .loginForm {
   display: flex;
@@ -128,7 +129,7 @@ input {
   margin: 0 auto;
   border-radius: 3px;
 }
-
+.logOut,
 .submit {
   margin: 1rem auto;
   font-family: "Quicksand", sans-serif;
@@ -142,6 +143,7 @@ input {
   cursor: pointer;
   width: 100px;
 }
+.logOut:hover,
 .submit:hover {
   opacity: 0.8;
 }
@@ -153,16 +155,16 @@ input {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  /* box-shadow: 0 2.8px 2.2px rgb(255, 255, 255), 0 6.7px 5.3px #ffffff,
+    0 12.5px 10px rgb(255, 255, 255), 0 22.3px 17.9px rgb(255, 254, 254),
+    0 41.8px 33.4px rgb(255, 255, 255), 0 100px 80px rgb(255, 255, 255); */
 }
 
 .moviePosters {
   display: flex;
   flex-wrap: nowrap;
-  /* display: block; */
+  justify-content: space-around;
 }
-/* .poster {
-  flex-shrink: 0;
-  -webkit-flex-shrink: 0;
-  max-width: 70%;
-  max-height: 90%;
-} */
+.logo {
+  width: 350px;
+}

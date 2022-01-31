@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Login from "./Login";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function Register() {
   const [user, setUser] = useState("");
@@ -32,7 +34,7 @@ function Register() {
   };
   return (
     <div className="register">
-      <h1 className="registerpage">Please sign up below:</h1>
+      <h1 className="registerPage">Please sign up below:</h1>
       <form className="registerForm" onSubmit={submitForm}>
         <label htmlFor="user">Username:</label>
         <input
@@ -48,7 +50,8 @@ function Register() {
           value={password}
           onChange={handlePasswordChange}
         />
-        <input className="submit" type="submit" value="SUBMIT" />
+
+        <input className="submit" type="submit" value="Submit" />
       </form>
     </div>
   );

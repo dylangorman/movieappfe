@@ -2,12 +2,8 @@ import { Link } from "react-router-dom";
 import dracula from "../images/dracula.jpg";
 import starwars from "../images/starwars.jpg";
 import vertigo from "../images/vertigo.jpg";
+import once from "../images/onceuponatime.jpeg";
 import Logo from "../images/1.png";
-
-// import React, { Component } from "react";
-// import ReactDOM from "react-dom";
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from "react-responsive-carousel";
 
 function Home() {
   return (
@@ -31,6 +27,15 @@ function Home() {
         <div className="imageContainer">
           <Link to="/MovieList">
             <img className="poster" src={vertigo} alt="vertigo poster" />
+          </Link>
+        </div>
+        <div className="imageContainer">
+          <Link to="/MovieList">
+            <img
+              className="poster"
+              src={once}
+              alt="once upon a time in hollywood poster"
+            />
           </Link>
         </div>
       </div>

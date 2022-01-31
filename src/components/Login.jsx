@@ -1,6 +1,7 @@
 import { useState } from "react";
-// import "./App.css";
-// import { Link } from "react-router-dom";
+import Profile from "./Profile";
+import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
 // import Home from "./Home";
 function Login({ user, setUser }) {
   const [userName, setUserName] = useState("");
@@ -24,14 +25,23 @@ function Login({ user, setUser }) {
       },
       body: payload,
     });
+    // .then((result) => {
+    //   result.json();
+    //   this.props.history.push("/Profile");
+    // })
+    // .then((info) => {
+    //   console.log(info);
+    // });
+
     const data = await res.json();
     setUser({ username: data.user.name, jwt: data.token });
     console.log(user);
   };
 
+  // DASHBOARD
   return (
     <div className="login">
-      <h1 className="loginpage">Please Login Here..</h1>
+      <h1 className="loginPage">Please Login Here..</h1>
       <form className="loginForm" onSubmit={handleSubmit}>
         <label htmlFor="user">Username:</label>
         <input
@@ -51,7 +61,7 @@ function Login({ user, setUser }) {
           className="submit"
           type="submit"
           value="Submit"
-          // onClick={handleSubmit}
+          // onSubmit={}
         />
       </form>
     </div>

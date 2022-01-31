@@ -1,12 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, State, useEffect } from "react";
 
-const MovieList = ({ user, setUser }) => {
-  const [myMovieList, setMyMovieList] = useState([]);
+function MovieList() {
+  const [user, setUser] = useState;
+  const [movie, setMovie] = useState;
+  const [myMovieList, setMyMovieList] = useState;
+  const baseURL = "http://localhost/movie/getallmovies";
+
+  const handleMyMovieList = (e) => {
+    setMyMovieList(e.target.value);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
-      //http://localhost/user/:id
-      const res = await fetch(`http://localhost/movie/${user.id}`, {
+      const res = await fetch(baseURL, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -32,11 +38,7 @@ const MovieList = ({ user, setUser }) => {
         {user ? (
           <ul className="list">
             {myMovieList.map((movie) => (
-              <li className="movie" key={movie.id}>
-                <div className="title">{movie.movie_title}</div>{" "}
-                <div className="actor">{movie.movie_actor}</div>
-                <div className="year">{movie.movie_year}</div>
-              </li>
+              <li className="movie" key={myMovieList}></li>
             ))}{" "}
           </ul>
         ) : (
@@ -45,6 +47,5 @@ const MovieList = ({ user, setUser }) => {
       </div>
     </>
   );
-};
-
+}
 export default MovieList;
