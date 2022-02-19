@@ -10,33 +10,31 @@ function Home() {
     <div className="home">
       <div className="logohome">
         <img src={Logo} className="logo" alt="logo" />
+        <div className="enterhere">
+          <Link to="/register">
+            <button className="signup">Signup/Login Here!</button>
+          </Link>
+        </div>
       </div>
+
       <div className="moviePosters">
         <div className="imageContainer">
-          <Link to="/MovieList">
-            <img className="poster" src={dracula} alt="dracula poster" />
-          </Link>
+          <img className="poster" src={dracula} alt="dracula poster" />
         </div>
 
         <div className="imageContainer">
-          <Link to="/MovieList">
-            <img className="poster" src={starwars} alt="starwars poster" />
-          </Link>
+          <img className="poster" src={starwars} alt="starwars poster" />
         </div>
 
         <div className="imageContainer">
-          <Link to="/MovieList">
-            <img className="poster" src={vertigo} alt="vertigo poster" />
-          </Link>
+          <img className="poster" src={vertigo} alt="vertigo poster" />
         </div>
         <div className="imageContainer">
-          <Link to="/MovieList">
-            <img
-              className="poster"
-              src={once}
-              alt="once upon a time in hollywood poster"
-            />
-          </Link>
+          <img
+            className="poster"
+            src={once}
+            alt="once upon a time in hollywood poster"
+          />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useEffect, State, useState } from "react";
+import { useState } from "react";
 
 function AddMovie() {
   const [movieTitle, setMovieTitle] = useState("");
@@ -38,30 +38,36 @@ function AddMovie() {
   return (
     <div className="addmovie">
       <form onSubmit={submitMovie}>
-        <h1>Add A Movie!</h1>
-        <label htmlFor="movieTitle">Movie:</label>
-        <input
-          type="text"
-          name="title"
-          value={movieTitle}
-          onChange={handleMovieTitle}
-        />
-        <label htmlFor="movieActor">Actor:</label>
-        <input
-          type="text"
-          name="actor"
-          value={movieActor}
-          onChange={handleMovieActor}
-        />
-        <label htmlFor="movieYear">Year:</label>
+        <div className="movie-div">
+          <h1>Add A Movie!</h1>
+          <label htmlFor="movieTitle">Movie:</label>
+          <input
+            type="text"
+            name="title"
+            value={movieTitle}
+            onChange={handleMovieTitle}
+          />
+        </div>
+        <div className="actor-div">
+          <label htmlFor="movieActor">Actor:</label>
+          <input
+            type="text"
+            name="actor"
+            value={movieActor}
+            onChange={handleMovieActor}
+          />
+        </div>
+        <div className="year-div">
+          <label htmlFor="movieYear">Year:</label>
 
-        <input
-          type="text"
-          name="year"
-          value={movieYear}
-          onChange={handleMovieYear}
-        />
-        <input className="submit" type="submit" value="SUBMIT" />
+          <input
+            type="text"
+            name="year"
+            value={movieYear}
+            onChange={handleMovieYear}
+          />
+        </div>
+        <input className="submit" type="submit" value="Submit" />
       </form>
     </div>
   );

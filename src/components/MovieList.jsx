@@ -1,9 +1,6 @@
-import { useState, State, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-function MovieList() {
-  const [user, setUser] = useState;
-  const [movie, setMovie] = useState;
-  const [myMovieList, setMyMovieList] = useState;
+function MovieList({ user, setUser, myList, setMyList }) {
   const baseURL = "http://localhost/movie/getallmovies";
 
   const handleMyMovieList = (e) => {
@@ -33,17 +30,8 @@ function MovieList() {
 
   return (
     <>
-      <h1>{user ? user.name : ""}</h1>
-      <div className="listContainer">
-        {user ? (
-          <ul className="list">
-            {myMovieList.map((movie) => (
-              <li className="movie" key={myMovieList}></li>
-            ))}{" "}
-          </ul>
-        ) : (
-          ""
-        )}
+      <div className="test-div">
+        <h1>HELLO WORLD</h1>
       </div>
     </>
   );

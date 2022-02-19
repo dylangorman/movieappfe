@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Profile from "./Profile";
-import { Link } from "react-router-dom";
-import { Redirect } from "react-router";
+// import Profile from "./Profile";
+// import { Link } from "react-router-dom";
+import { Navigate } from "react-router";
 // import Home from "./Home";
 function Login({ user, setUser }) {
   const [userName, setUserName] = useState("");
@@ -25,18 +25,14 @@ function Login({ user, setUser }) {
       },
       body: payload,
     });
-    // .then((result) => {
-    //   result.json();
-    //   this.props.history.push("/Profile");
-    // })
-    // .then((info) => {
-    //   console.log(info);
-    // });
 
     const data = await res.json();
     setUser({ username: data.user.name, jwt: data.token });
     console.log(user);
   };
+  if (user) {
+    return <Navigate to="/profile" />;
+  }
 
   // DASHBOARD
   return (

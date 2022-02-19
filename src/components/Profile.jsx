@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddMovie from "./AddMovie";
-import MovieList from "./MovieList";
+// import MovieList from "./MovieList";
+import Navigation from "./Navigation";
+
 // PROFILE
-function Profile({ user, setUser, myList, setMyList }) {
-  const [passwordHash, setPasswordHash] = useState("");
+import { Link } from "react-router-dom";
+
+const Profile = ({ user, setUser, myList, setMyList }) => {
+  const [passwordHash, setPasswordHash] = useState("initialPassword");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,7 +18,6 @@ function Profile({ user, setUser, myList, setMyList }) {
           "Content-Type": "application/json",
         },
       });
-
       const data = await res.json();
       setPasswordHash(data.msg.passwordHash);
     };
@@ -27,22 +30,44 @@ function Profile({ user, setUser, myList, setMyList }) {
     }
   }, [user]);
 
-  // FIND MOVIE FUNCTION FOR WHEN LOGGED IN
-
   // LOGOUT BUTTON FUNCTION
   const logOut = () => setUser(null);
 
   return (
-    // // WHAT WE SEE ON SCREEN
-    <div className="profile">
-      <h1 className="profilePage">User Profile</h1>
-      <h1>{user ? `Welcome ${user.username}` : ""}</h1>
-      <h1>{user ? "" : "Not logged in"}</h1>
-      <table type="text" name="movie" value={MovieList}></table>
+    <>
+      {/* <Navigation user={user} setUser={setUSer} / */}
+      {/* // // WHAT WE SEE ON SCREEN */}
+      <div className="profile">
+        <h1 className="profilePage">User Profile</h1>
+        <h1>{user ? `Welcome ${user.username}!` : ""}</h1>
+        <h1>{user ? "" : "Not logged in"}</h1>
+        <div className="enter-movie">
+          <AddMovie
+            user={user}
+            setUser={setUser}
+            myList={myList}
+            setMyList={setMyList}
+          />
+        </div>
+        <div className="link-list">
+          <Link to="/mymovies">
+            <button className="movielist">My Movies!</button>
+          </Link>
+        </div>
 
-      <input className="logOut" type="button" value="logOut" onClick={logOut} />
-    </div>
+        <div className="logout-div">
+          <Link to="/">
+            <input
+              className="logOut"
+              type="button"
+              value="logOut"
+              onClick={logOut}
+            />
+          </Link>
+        </div>
+      </div>
+    </>
   );
-}
+};
 
 export default Profile;
