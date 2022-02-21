@@ -35,6 +35,7 @@ const Profile = ({ user, setUser, myList, setMyList }) => {
 
   return (
     <>
+      <Navigation></Navigation>
       {/* <Navigation user={user} setUser={setUSer} / */}
       {/* // // WHAT WE SEE ON SCREEN */}
       <div className="profile">

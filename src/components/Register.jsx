@@ -1,8 +1,8 @@
 import { useState } from "react";
-// import Login from "./Login";
+import Navigation from "./Navigation";
 import { Link } from "react-router-dom";
 
-function Register() {
+function Register(props) {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState({});
@@ -28,58 +28,59 @@ function Register() {
     });
     console.log(await res.json());
   };
-  // if (props.user) {
-  //   return (
-  //     <div className="already-logged-route">
-  //       <div className=""></div>
-  //       <div className="already-in">
-  //         <p>You are already logged in!</p>
-  //         <Link to="/login">
-  //           <button className="takemeback">Take me back to login..</button>
-  //         </Link>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (props.user) {
+    return (
+      <div className="already-logged-route">
+        <div className=""></div>
+        <div className="already-in">
+          <p>You are already logged in!</p>
+          <Link to="/login">
+            <button className="takemeback">Take me back to login..</button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
-  // if (response.status === 401) {
-  //   return (
-  //     <>
-  //       <div className="already-registered">
-  //         <div className="already-reg">
-  //           <p>User {user} is already registered!</p>
-  //           <Link to="/login">
-  //             <button className="tryagain">
-  //               Please try registering again.
-  //             </button>
-  //           </Link>
-  //           <h5>or</h5>
+  if (response.status === 401) {
+    return (
+      <>
+        <div className="already-registered">
+          <div className="already-reg">
+            <p>User {user} is already registered!</p>
+            <Link to="/login">
+              <button className="tryagain">
+                Please try registering again.
+              </button>
+            </Link>
+            <h5>or</h5>
 
-  //           <Link to="/">
-  //             <button className="leavesite">Leave </button>
-  //           </Link>
-  //         </div>
-  //       </div>
-  //     </>
-  //   );
-  // }
+            <Link to="/">
+              <button className="leavesite">Leave </button>
+            </Link>
+          </div>
+        </div>
+      </>
+    );
+  }
 
-  // if (response.status === 201) {
-  //   return (
-  //     <>
-  //       <div className="register-route">
-  //         <div className="success">
-  //           <p>Successfully registered! please login.</p>
-  //           {/* <Link to="/login"> */}
-  //           <button className="takemeback">Take me to login!</button>
-  //           {/* </Link> */}
-  //         </div>
-  //       </div>
-  //     </>
-  //   );
-  // }
+  if (response.status === 201) {
+    return (
+      <>
+        <div className="register-route">
+          <div className="success">
+            <p>Successfully registered! please login.</p>
+            {/* <Link to="/login"> */}
+            <button className="takemeback">Take me to login!</button>
+            {/* </Link> */}
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <>
+      <Navigation></Navigation>
       <div className="register">
         <h1 className="registerPage">Please sign up below:</h1>
         <form className="registerForm" onSubmit={submitForm}>

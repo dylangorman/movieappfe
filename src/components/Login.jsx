@@ -1,6 +1,5 @@
 import { useState } from "react";
-// import Profile from "./Profile";
-// import { Link } from "react-router-dom";
+import Navigation from "./Navigation";
 import { Navigate } from "react-router";
 // import Home from "./Home";
 function Login({ user, setUser }) {
@@ -36,31 +35,34 @@ function Login({ user, setUser }) {
 
   // DASHBOARD
   return (
-    <div className="login">
-      <h1 className="loginPage">Please Login Here..</h1>
-      <form className="loginForm" onSubmit={handleSubmit}>
-        <label htmlFor="user">Username:</label>
-        <input
-          type="text"
-          name="user"
-          value={userName}
-          onChange={handleUserName}
-        />
-        <label htmlFor="Password">Password: </label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-        <input
-          className="submit"
-          type="submit"
-          value="Submit"
-          // onSubmit={}
-        />
-      </form>
-    </div>
+    <>
+      <Navigation></Navigation>
+      <div className="login">
+        <h1 className="loginPage">Please Login Here..</h1>
+        <form className="loginForm" onSubmit={handleSubmit}>
+          <label htmlFor="user">Username:</label>
+          <input
+            type="text"
+            name="user"
+            value={userName}
+            onChange={handleUserName}
+          />
+          <label htmlFor="Password">Password: </label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
+          <input
+            className="submit"
+            type="submit"
+            value="Submit"
+            // onSubmit={}
+          />
+        </form>
+      </div>
+    </>
   );
 }
 
