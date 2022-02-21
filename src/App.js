@@ -1,12 +1,12 @@
 import "./App.css";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-import AddMovie from "./components/AddMovie";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import AddMovie from "./components/AddMovie";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
